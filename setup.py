@@ -1,8 +1,13 @@
 # -*- coding: utf-8 -*-
 from setuptools import setup, find_packages
- 
+
+packages = find_packages()
 long_description = open('README.txt').read()
- 
+template_patterns = [
+    'templates/*.html',
+    'templates/*/*.html',
+]
+
 setup(
     name='django-tagging-autocomplete',
     version='0.3.1',
@@ -11,7 +16,7 @@ setup(
     author='Ludwik Trammer',
     author_email='ludwik@gmail.com',
     url='http://code.google.com/p/django-tagging-autocomplete/',
-    packages=find_packages(),
+    packages=packages,
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Environment :: Web Environment',
@@ -22,6 +27,5 @@ setup(
         'Framework :: Django',
     ],
     zip_safe=False,
-    #package_data={},
-    #test_suite='tagging_autocomplete.tests.runtests.runtests'
+    package_data=dict((package, template_patterns) for package in packages),
 ) 
