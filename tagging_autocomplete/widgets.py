@@ -15,11 +15,11 @@ class TagAutocomplete(TextInput):
 		return mark_safe("\n".join([html, js]))
 
 	class Media:
-		js_base_url = getattr(settings, 'TAGGING_AUTOCOMPLETE_JS_BASE_URL', '%s/js' % settings.MEDIA_URL)
+		js_base_url = getattr(settings, 'TAGGING_AUTOCOMPLETE_JS_BASE_URL', '%sjs/' % settings.STATIC_URL)
 		js = (
 			#'lib/jquery/jquery.min.js',
-			'%s/jquery-ui.min.js' % js_base_url,
-			'%s/tagging_autocomplete.js' % js_base_url,
+			'%sjquery-ui.min.js' % js_base_url,
+			#'%stagging_autocomplete.js' % js_base_url,
 		)
 		css = {
 			'screen': ('css/jquery-ui.css',),
